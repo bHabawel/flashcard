@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./index.css";
 
 export default function App() {
@@ -43,5 +44,14 @@ const questions = [
 ];
 
 function FlashCards() {
-  return <div>TODO</div>;
+  const [isClicked, setIsClicked] = useState(0);
+  return (
+    <div className="flashcards">
+      {questions.map((content) => (
+        <div>
+          {isClicked === content.id ? content.answer : content.question}
+        </div>
+      ))}
+    </div>
+  );
 }
