@@ -51,7 +51,9 @@ function FlashCards() {
         <div
           key={content.id}
           className={isClicked === content.id ? "selected" : ""}
-          onClick={() => setIsClicked(content.id)}
+          onClick={() =>
+            setIsClicked(content.id !== isClicked ? content.id : null)
+          }
         >
           {isClicked === content.id ? content.answer : content.question}
         </div>
